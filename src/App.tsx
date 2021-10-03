@@ -1,7 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
+import Box from '@mui/material/Box';
+import Table from './table';
 
-import { GET_REPOSITORIES } from './repositories';
+import { GET_REPOSITORIES, repositoriesColumns } from './repositories';
 import { RepositorieVars, RepositoreGetResponse } from './repositories/types';
 
 function App() {
@@ -14,7 +16,14 @@ function App() {
   console.log(data);
 
   return (
-    <h1>Temp</h1>
+    <Box>
+      <Table 
+        rows={data?.search?.nodes ?? []}
+        columns={repositoriesColumns}
+        loading={loading}
+        tableName="repositories"
+      />
+    </Box>
   );
 }
 
