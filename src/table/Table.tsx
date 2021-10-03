@@ -8,6 +8,12 @@ import Paper from '@mui/material/Paper';
 import { TableColumn, Loader, TableRow } from './index';
 import { TableProps, TableRowProps } from './types';
 
+const styles = {
+  root: {
+    overflow: 'auto',
+  }
+}
+
 const TableComp = (props: TableProps) => {
 
   const renderRows = React.useCallback(() => {
@@ -17,8 +23,8 @@ const TableComp = (props: TableProps) => {
   }, [props.rows, props.columns]);
 
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label={props.tableName}>
+    <TableContainer sx={styles.root} component={Paper}>
+      <Table aria-label={props.tableName} stickyHeader>
         <TableHead>
           <TableColumn columns={props.columns} />
         </TableHead>

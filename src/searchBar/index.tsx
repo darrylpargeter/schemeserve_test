@@ -9,6 +9,12 @@ interface SearchBarProps {
   defaultValue?: string;
 }
 
+const styles = {
+  root: {
+    width: '100%',
+  }
+}
+
 const SearchBar = (props: SearchBarProps) => {
   const [value, setValue] = React.useState(props?.defaultValue ?? '');
 
@@ -28,6 +34,7 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <TextField 
+      sx={styles.root}
       value={value}
       onChange={onChange}
       variant="filled"

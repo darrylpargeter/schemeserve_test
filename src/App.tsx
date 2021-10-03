@@ -7,6 +7,17 @@ import SearchBar from './searchBar';
 import { GET_REPOSITORIES, repositoriesColumns } from './repositories';
 import { RepositorieVars, RepositoreGetResponse } from './repositories/types';
 
+const styles = {
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100vw',
+    height: '100vh',
+  }
+}
+
 function App() {
   const [searchTerm, setSearchTerm] = React.useState('react');
   const [pageLimit, setPageLimit] = React.useState(25);
@@ -20,7 +31,8 @@ function App() {
   }
 
   return (
-    <Box>
+    // @ts-ignore
+    <Box sx={styles.root}>
       <SearchBar defaultValue={searchTerm} onChange={handleChange} placeHolder="Search Repos" />
       <Table 
         rows={data?.search?.nodes ?? []}
