@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from '@apollo/client';
+
+import { GET_REPOSITORIES } from './repositories';
+import { RepositorieVars, RepositoreGetResponse } from './repositories/types';
 
 function App() {
+  const [searchTerm, setSearchTerm] = React.useState('react');
+  const [pageLimit, setPageLimit] = React.useState(25);
+  const { loading, error, data } = useQuery<RepositoreGetResponse, RepositorieVars>(GET_REPOSITORIES, {
+    variables: { searchTerm: searchTerm, pageLimit: pageLimit }
+  });
+
+  console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1>Temp</h1>
   );
 }
 
