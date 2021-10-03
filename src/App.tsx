@@ -20,8 +20,8 @@ const styles = {
 
 function App() {
   const [searchTerm, setSearchTerm] = React.useState('react');
-  const [pageLimit, setPageLimit] = React.useState(25);
-  const { loading, error, data } = useQuery<RepositoreGetResponse, RepositorieVars>(GET_REPOSITORIES, {
+  const [pageLimit] = React.useState(25);
+  const { loading, data } = useQuery<RepositoreGetResponse, RepositorieVars>(GET_REPOSITORIES, {
     variables: { searchTerm: searchTerm, pageLimit: pageLimit }
   });
 
