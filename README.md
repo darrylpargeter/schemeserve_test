@@ -1,7 +1,7 @@
 # SchemeServe Coding Test
 
 ## Project Set up
-1) in a text editor open up or create a file called `.env`
+1) in a text editor open up a file called `.env` in the root of this project
 2) create a github [personal access token](https://github.com/settings/tokens/new)
 3) in the `.env` replace the `<place token here>` with your token it should look something like this
 ```
