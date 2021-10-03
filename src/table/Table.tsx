@@ -5,7 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 
-import { TableColumn } from './index';
+import { TableColumn, Loader } from './index';
 import { TableProps } from './types';
 
 const TableComp = (props: TableProps) => {
@@ -15,6 +15,14 @@ const TableComp = (props: TableProps) => {
         <TableHead>
           <TableColumn columns={props.columns} />
         </TableHead>
+
+        <TableBody>
+          {props.loading ? (
+            <Loader />
+          ) : (
+            null
+          )}
+        </TableBody>
       </Table>
     </TableContainer>
   );

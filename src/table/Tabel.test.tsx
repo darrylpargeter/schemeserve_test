@@ -27,3 +27,9 @@ test('Table displays the correct number of columns', () => {
   const cols = screen.getAllByRole('columnheader');
   expect(cols).toHaveLength(3);
 });
+
+test('Table displays a loading message', () => {
+  render(<Table loading={true} columns={defaultColumns} rows={[]} tableName="test" />);
+  const loadingText = screen.getByText('Loading Data');
+  expect(loadingText).toBeInTheDocument();
+});
