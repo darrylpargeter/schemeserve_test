@@ -5,10 +5,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 
-import { TableColumn, Loader } from './index';
-import { TableProps } from './types';
+import { TableColumn, Loader, TableRow } from './index';
+import { TableProps, TableRowProps } from './types';
 
 const TableComp = (props: TableProps) => {
+
+  const renderRows = React.useCallback(() => {
+    return props.rows.map((row: TableRowProps, idx: number) => (
+      <TableRow row={row} columns={props.columns} key={`row-${idx}`} />
+    ))
+  }, [props.rows, props.columns]);
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label={props.tableName}>
@@ -20,7 +27,7 @@ const TableComp = (props: TableProps) => {
           {props.loading ? (
             <Loader />
           ) : (
-            null
+            renderRows()
           )}
         </TableBody>
       </Table>

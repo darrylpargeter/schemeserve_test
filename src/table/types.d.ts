@@ -5,6 +5,11 @@ export interface TableColumn {
   component?: (row: any) => ReactElement;
 }
 
+export interface TableRowProps {
+  row: any;
+  columns: TableColumn[];
+}
+
 export interface TableProps {
   columns: TableColumnProps[];
   rows: any[];
