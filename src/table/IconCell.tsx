@@ -14,11 +14,25 @@ interface IconCellProps {
   type: 'star' | 'fork';
 }
 
+const styles = {
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '.5rem',
+  },
+  fork: {
+    fill: 'gray',
+  },
+  star: {
+    fill: 'gold',
+  },
+};
+
 const IconCell = (props: IconCellProps) => {
   const Icon: typeof SvgIcon = iconTypes[props.type];
 
   return (
-    <Box><Icon />{props.text}</Box>
+    <Box sx={styles.root}><Icon sx={styles[props.type]} />{props.text}</Box>
   );
 }
 
